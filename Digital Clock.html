@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body{
+            background: url("a.webp") no-repeat center/cover ;
+        }
+    .qw{
+            border: 5px rgb(102, 83, 58) outset;
+           
+            border-radius: 3px;
+            color: antiquewhite;
+           text-align: center;
+            font-size: 4rem; 
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            top: 53%;
+            left: 39%;
+            letter-spacing: 2px;
+           
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="a">
+
+        <p id="q" class="qw"></p>
+
+    </div>
+
+    <script>
+      function time(){
+        var date= new Date();
+       var h= date.getHours();
+        var m=date.getMinutes();
+        var s=date.getSeconds();
+        var session="AM";
+
+        if(h==0){
+            h=12;
+        }
+
+        if(h>12){
+            h=h-12;
+            session="PM";
+        }
+
+        if(h<10){
+            h="0"+h;
+        }
+        if(m<10){
+            m="0"+m;
+        }
+        if(s<10){
+            s="0"+s;
+        }
+        document.getElementById("q").innerHTML= h + ":" + m + ":" + s + " "+ session;
+       
+        setTimeout(time,1000);
+      }
+      time();
+        </script>
+
+</body>
+</html>
